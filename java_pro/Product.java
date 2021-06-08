@@ -1,32 +1,16 @@
 import java.util.Scanner;
- 
-class Product{
- int pcode;
- String pname;
- float price;
- void insertRecord(int cod,String nam,float prc){
-    pcode = cod;
-    pname = nam;
-    price = prc;
-
-  }
-  void findLowest(float pr1,float pr2,float pr3,String nm1,String nm2,String nm3){
-     System.out.println("Lowest price item is:");
-  if(pr1 < pr2 && pr1<pr3){
-      System.out.println("product name: "+nm1 + "  price: "+ pr1);
-     }
-  else if(pr2< pr1 && pr2 < pr3){
-      System.out.println("product name: "+nm2 + "  price: "+ pr2);
-     }
-  else if(pr3 < pr2 && pr3 < pr1){
-     System.out.println("product name: "+nm3 + "  price: "+ pr3);
-     }
-  else{
-     System.out.println("all product have equal price");
-    }
+class Product {
+  int pcode;
+  String pname;
+  float price;
     
+   public Product(int code,String name,float pric){
+      pcode = code;
+      pname = name;
+      price = pric;
+  
   }
- 
+    
 public static void main(String args[]){
    Scanner input = new Scanner(System.in);
    System.out.println("Enter code of first product:");
@@ -50,15 +34,23 @@ public static void main(String args[]){
    System.out.println("Enter price of third product:");
    float price3 = input.nextFloat();
    
-   Product p1 = new Product();
-   Product p2 = new Product();
-   Product p3 = new Product();
-   
-   p1.insertRecord(cd1,name1,price1);
-   p2.insertRecord(cd2,name2,price2);
-   p3.insertRecord(cd3,name3,price3);
+    Product p1 = new Product(cd1,name1,price1);
+    Product p2 = new Product(cd2,name2,price2);
+    Product p3 = new Product(cd3,name3,price3);
 
-   p1.findLowest(price1,price2,price3,name1,name2,name3);
-  
-  }
-}
+    System.out.println("Lowest price item is:");
+  if(p1.price < p2.price && p1.price < p3.price){
+      System.out.println("product name: "+p1.pname + "  price: "+ p1.price);
+     }
+  else if(p2.price< p1.price && p2.price < p3.price){
+      System.out.println("product name: "+p2.pname + "  price: "+ p2.price);
+     }
+  else if(p3.price < p2.price && p3.price < p1.price){
+     System.out.println("product name: "+p3.pname + "  price: "+ p3.price);
+     }
+  else{
+     System.out.println("all product have equal price");
+    }
+    
+    }
+ }
